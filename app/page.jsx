@@ -216,17 +216,102 @@ export default function Home() {
         ease: "power2.out"
       })
       .to("#loader-panels .panel", {
-        yPercent: -100,
-        duration: 0.65,
-        stagger: 0.045,
-        ease: "power4.inOut"
-      })
-      .set("#loader", {
-        display: "none"
-      })
-      .set("#loader-panels", {
-        display: "none"
-      });
+  yPercent: -100,
+  duration: 0.65,
+  stagger: 0.045,
+  ease: "power4.inOut"
+})
+.set("#loader", {
+  display: "none"
+})
+.set("#loader-panels", {
+  display: "none"
+}, "+=0")
+.fromTo(
+  ".hero-index",
+  {
+    opacity: 0,
+    y: 20
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.25,
+    ease: "power3.out"
+  },
+  "-=0.6"
+)
+.fromTo(
+  ".hero-h1",
+  {
+    opacity: 0,
+    y: 40
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.45,
+    ease: "power3.out"
+  },
+  "-=0.18"
+)
+.fromTo(
+  ".hero-desc",
+  {
+    opacity: 0,
+    y: 20
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.3,
+    ease: "power3.out"
+  },
+  "-=0.28"
+)
+.fromTo(
+  ".hero-right-top,.hero-right-bot",
+  {
+    opacity: 0
+  },
+  {
+    opacity: 1,
+    duration: 0.3,
+    stagger: 0.04,
+    ease: "power2.out"
+  },
+  "-=0.22"
+)
+.fromTo(
+  ".meta-row",
+  {
+    opacity: 0,
+    y: 10
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.25,
+    stagger: 0.03,
+    ease: "power3.out"
+  },
+  "-=0.2"
+)
+.fromTo(
+  ".hero-strip-cell",
+  {
+    opacity: 0,
+    y: 20
+  },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.25,
+    stagger: 0.04,
+    ease: "power3.out"
+  },
+  "-=0.2"
+);
 
     gsap.to(".hero-big", {
       yPercent: -14,

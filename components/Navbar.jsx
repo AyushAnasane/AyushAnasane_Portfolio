@@ -17,7 +17,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className="nav-cell nav-right">
-        <a href="MyResume.pdf" target="_blank" rel="noopener" className="resume-btn">
+        <a href="/MyResume.pdf" target="_blank" rel="noopener" className="resume-btn">
           RESUME <span>↗</span>
         </a>
         <span className="nav-time" id="navTime"></span>
