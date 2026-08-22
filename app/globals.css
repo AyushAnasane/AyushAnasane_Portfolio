@@ -1053,6 +1053,30 @@ html.lenis,
         border-bottom: 1px solid var(--lt)
       }
 
+      .hero-right-top {
+        position: relative;
+        min-height: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+        padding: 48px;
+      }
+
+      .hero-right-top .hero-intro {
+        width: 100%;
+        max-width: 700px;
+        margin: 0;
+        padding: 0;
+        font-family: "Space Mono", monospace !important;
+        font-size: clamp(2rem, 3.2vw, 3.4rem) !important;
+        font-weight: 700 !important;
+        line-height: 1.02 !important;
+        letter-spacing: -0.06em !important;
+        color: var(--fg) !important;
+      }
+
       .statement-band {
         min-height: 360px
       }
@@ -1124,3 +1148,50 @@ html.lenis,
         display: none
       }
     }
+
+    .hero-right-top {
+  position: relative;
+  min-height: 0;
+  padding: 44px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-intro-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-intro-label {
+  font-family: "Space Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--mid);
+  letter-spacing: 0.06em;
+}
+
+.hero-intro {
+  margin: 32px 0;
+  max-width: 720px;
+  font-family: "Space Mono", monospace !important;
+  font-size: clamp(1.7 rem, 4vw, 4.8rem) !important;
+  font-weight: 700 !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.065em !important;
+  color: var(--fg) !important;
+}
+
+.hero-intro-foot {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--lt);
+  font-family: "Space Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--mid);
+}

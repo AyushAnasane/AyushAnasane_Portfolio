@@ -13,7 +13,29 @@ export default function Hero() {
         </div>
         <div className="hero-right">
           <div className="hero-right-top">
-            <span className="hero-big">AY</span>
+            <div className="hero-intro-wrap">
+              <span className="hero-intro-label">A LITTLE ABOUT ME / 001</span>
+
+              <h2 className="hero-intro">
+                I BUILD THINGS,
+                <br />
+                BREAK THINGS,
+                <br />
+                FIX THEM,
+                <br />
+                AND PRETEND
+                <br />
+                THAT WAS THE PLAN.
+              </h2>
+
+              <div className="hero-intro-foot">
+
+
+
+
+                
+              </div>
+            </div>
           </div>
           <div className="hero-right-bot">
             <div className="meta-row"><span className="meta-label">LOCATION</span><span className="meta-val">MUMBAI, IN</span></div>
