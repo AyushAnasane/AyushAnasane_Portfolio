@@ -330,7 +330,7 @@ nav {
 }
 
 .hero-left {
-  padding: 64px 40px;
+  padding: 48px 40px 56px;
   border-right: 1px solid var(--fg);
   display: flex;
   flex-direction: column;
@@ -340,17 +340,17 @@ nav {
 .hero-index {
   font-family: "Space Mono", monospace;
   font-size: .7rem;
-  color: var(--mid);
-  margin-bottom: 80px;
+  color: var(--acc);
+  margin-bottom: 90px;
 }
 
 .hero-h1 {
   font-family: "Space Mono", monospace;
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(3.5rem, 6.5vw, 5rem);
   font-weight: 700;
-  letter-spacing: -.03em;
-  line-height: 1;
-  margin-bottom: 40px;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  margin-bottom: 32px;
 }
 
 .hero-h1 span.acc {
@@ -358,11 +358,12 @@ nav {
 }
 
 .hero-desc {
-  font-size: .9rem;
-  font-weight: 300;
-  line-height: 1.7;
+  margin-top: 15px;
+  max-width: 420px;
+  margin-left: 5px;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--mid);
-  max-width: 320px;
 }
 
 .hero-right {
@@ -522,7 +523,6 @@ nav {
 .statement-meta {
   margin-top: 48px;
   padding-top: 16px;
-  border-top: 1px solid #333;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   font-family: "Space Mono", monospace;

@@ -10,8 +10,8 @@ export default function Hero() {
           </h1>
 
           <p className="hero-desc">
-            College student. Building fintech tools and SaaS products for Indian
-            retail traders and small teams.
+           IT student and developer building practical software. Interested in fintech,
+           data, and turning ideas into products people can actually use.
           </p>
         </div>
 

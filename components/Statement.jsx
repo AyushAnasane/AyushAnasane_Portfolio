@@ -5,9 +5,7 @@ export default function Statement() {
         <span className="statement-index">01 — BUILD</span>
         <h2>BUILDING<br />THINGS THAT<br /><span>SHIP.</span></h2>
         <div className="statement-meta">
-          <span>MUMBAI / INDIA</span>
-          <span>B.TECH IT / 2026</span>
-          <span>SOFTWARE · FINTECH · PRODUCTS</span>
+
         </div>
       </div>
     </section>

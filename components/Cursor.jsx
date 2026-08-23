@@ -13,48 +13,61 @@ export default function Cursor() {
 
     if (!cursor || !dot) return;
 
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    gsap.set(cursor, {
+      x: centerX,
+      y: centerY
+    });
+
+    gsap.set(dot, {
+      x: centerX,
+      y: centerY
+    });
+
     const moveCursor = (e) => {
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.45,
+        duration: 0.35,
         ease: "power3.out"
       });
 
       gsap.to(dot, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.08,
+        duration: 0.06,
         ease: "power2.out"
       });
     };
 
     const handleEnter = () => {
       gsap.to(cursor, {
-        width: 54,
-        height: 54,
-        duration: 0.25,
+        width: 42,
+        height: 42,
+        duration: 0.22,
         ease: "power2.out"
       });
 
       gsap.to(dot, {
-        scale: 0.55,
-        duration: 0.25,
+        scale: 0.7,
+        duration: 0.22,
         ease: "power2.out"
       });
     };
 
     const handleLeave = () => {
       gsap.to(cursor, {
-        width: 34,
-        height: 34,
-        duration: 0.25,
+        width: 28,
+        height: 28,
+        duration: 0.22,
         ease: "power2.out"
       });
 
       gsap.to(dot, {
         scale: 1,
-        duration: 0.25,
+        duration: 0.22,
         ease: "power2.out"
       });
     };
@@ -65,17 +78,17 @@ export default function Cursor() {
       "a, button, .proj, .resume-btn"
     );
 
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleEnter);
-      el.addEventListener("mouseleave", handleLeave);
+    interactiveElements.forEach((element) => {
+      element.addEventListener("mouseenter", handleEnter);
+      element.addEventListener("mouseleave", handleLeave);
     });
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
 
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleEnter);
-        el.removeEventListener("mouseleave", handleLeave);
+      interactiveElements.forEach((element) => {
+        element.removeEventListener("mouseenter", handleEnter);
+        element.removeEventListener("mouseleave", handleLeave);
       });
     };
   }, []);
