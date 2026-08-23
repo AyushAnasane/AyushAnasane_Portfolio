@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
+html,
+body,
+a,
+button,
+.proj {
+  cursor: none !important;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
@@ -64,32 +72,47 @@ body {
   background-size: 56px 56px;
 }
 
-.cur {
+.custom-cursor {
   position: fixed;
-  width: 10px;
-  height: 10px;
-  background: var(--acc);
-  border-radius: 0;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--fg);
+  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: transform .1s;
+  will-change: transform, width, height;
 }
 
-.cur-ring {
+.custom-cursor-dot {
   position: fixed;
-  width: 2px;
-  height: 24px;
-  background: var(--fg);
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--acc);
+  border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
+  z-index: 10000;
   transform: translate(-50%, -50%);
-  transition: height .3s, background .3s;
+  will-change: transform;
 }
 
-.cur-ring.h {
-  height: 40px;
-  background: var(--acc);
+@media (max-width: 768px) {
+  html,
+  body,
+  a,
+  button,
+  .proj {
+    cursor: auto !important;
+  }
+
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none;
+  }
 }
 
 #loader {
