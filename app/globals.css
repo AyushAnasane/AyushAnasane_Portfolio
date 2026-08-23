@@ -69,7 +69,6 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
   will-change: transform, width, height;
 }
 
@@ -83,7 +82,6 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  transform: translate(-50%, -50%);
   will-change: transform;
 }
 

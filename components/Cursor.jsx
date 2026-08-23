@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring
+} from "framer-motion";
 
 export default function Cursor() {
   const mouseX = useMotionValue(0);
@@ -31,14 +35,12 @@ export default function Cursor() {
     mass: 0.15
   });
 
-  const ringSize = useMotionValue(28);
+  const ringSize = useMotionValue(24);
 
-  const ringWidth = useSpring(ringSize, {
+  const ringSizeSpring = useSpring(ringSize, {
     stiffness: 500,
     damping: 32
   });
-
-  const ringHeight = useTransform(ringWidth, (value) => value);
 
   useEffect(() => {
     const move = (event) => {
@@ -47,11 +49,11 @@ export default function Cursor() {
     };
 
     const enter = () => {
-      ringSize.set(42);
+      ringSize.set(36);
     };
 
     const leave = () => {
-      ringSize.set(28);
+      ringSize.set(24);
     };
 
     window.addEventListener("mousemove", move);
@@ -82,8 +84,10 @@ export default function Cursor() {
         style={{
           x: ringX,
           y: ringY,
-          width: ringWidth,
-          height: ringHeight
+          width: ringSizeSpring,
+          height: ringSizeSpring,
+          translateX: "-50%",
+          translateY: "-50%"
         }}
       />
 
@@ -91,7 +95,9 @@ export default function Cursor() {
         className="custom-cursor-dot"
         style={{
           x: dotX,
-          y: dotY
+          y: dotY,
+          translateX: "-50%",
+          translateY: "-50%"
         }}
       />
     </>
