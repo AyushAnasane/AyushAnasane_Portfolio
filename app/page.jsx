@@ -313,17 +313,6 @@ export default function Home() {
   "-=0.2"
 );
 
-    gsap.to(".hero-big", {
-      yPercent: -14,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.6
-      }
-    });
-
     gsap.fromTo(
       ".about-copy p",
       {

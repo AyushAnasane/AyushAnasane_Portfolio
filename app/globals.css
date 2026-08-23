@@ -554,10 +554,12 @@ nav {
 
 .about-copy {
   padding: 64px 40px;
-  border-right: 1px solid var(--fg);
+  border-left: 1px solid var(--fg);
 }
 
 .about-copy p {
+  justify-content: flex-start;
+  display: flex;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.9;
@@ -607,6 +609,20 @@ nav {
 
 .work {
   padding-top: 0;
+}
+
+.proj,
+.proj:visited,
+.proj:hover,
+.proj:active,
+.proj:focus {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.proj:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: -1px;
 }
 
 .proj {
@@ -743,9 +759,9 @@ nav {
 
 .exp-row {
   display: grid;
-  grid-template-columns: 80px 140px 1fr 160px;
+  grid-template-columns: 90px 220px 1fr 180px;
   border-bottom: 1px solid var(--lt);
-  min-height: 64px;
+  min-height: 96px;
 }
 
 .exp-row:last-child {
@@ -753,7 +769,7 @@ nav {
 }
 
 .exp-cell {
-  padding: 18px 24px;
+  padding: 20px 24px;
   border-right: 1px solid var(--lt);
   display: flex;
   align-items: center;
@@ -771,23 +787,26 @@ nav {
 
 .exp-role {
   font-family: "Space Mono", monospace;
-  font-size: .85rem;
+  font-size: .78rem;
   font-weight: 700;
+  line-height: 1.35;
 }
 
 .exp-desc {
-  font-size: .8rem;
+  font-size: .78rem;
   color: var(--mid);
   font-weight: 300;
   line-height: 1.6;
+  max-width: 100%;
 }
 
 .exp-tag {
   font-family: "Space Mono", monospace;
-  font-size: .65rem;
+  font-size: .62rem;
   color: var(--mid);
   text-align: right;
   width: 100%;
+  line-height: 1.5;
 }
 
 .activity {
