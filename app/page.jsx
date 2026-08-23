@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
+import ContourBackground from "@/components/ContourBackground";
 import Cursor from "@/components/Cursor";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
@@ -507,7 +508,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="scroll-grid" aria-hidden="true" />
+      <ContourBackground />
 
       <Cursor />
       <Loader />

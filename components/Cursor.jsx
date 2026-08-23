@@ -1,102 +1,99 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useEffect } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 export default function Cursor() {
-  const cursorRef = useRef(null);
-  const dotRef = useRef(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const ringX = useSpring(mouseX, {
+    stiffness: 400,
+    damping: 32,
+    mass: 0.35
+  });
+
+  const ringY = useSpring(mouseY, {
+    stiffness: 400,
+    damping: 32,
+    mass: 0.35
+  });
+
+  const dotX = useSpring(mouseX, {
+    stiffness: 1200,
+    damping: 45,
+    mass: 0.15
+  });
+
+  const dotY = useSpring(mouseY, {
+    stiffness: 1200,
+    damping: 45,
+    mass: 0.15
+  });
+
+  const ringSize = useMotionValue(28);
+
+  const ringWidth = useSpring(ringSize, {
+    stiffness: 500,
+    damping: 32
+  });
+
+  const ringHeight = useTransform(ringWidth, (value) => value);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    const dot = dotRef.current;
-
-    if (!cursor || !dot) return;
-
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-
-    gsap.set(cursor, {
-      x: centerX,
-      y: centerY
-    });
-
-    gsap.set(dot, {
-      x: centerX,
-      y: centerY
-    });
-
-    const moveCursor = (e) => {
-      gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.35,
-        ease: "power3.out"
-      });
-
-      gsap.to(dot, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.06,
-        ease: "power2.out"
-      });
+    const move = (event) => {
+      mouseX.set(event.clientX);
+      mouseY.set(event.clientY);
     };
 
-    const handleEnter = () => {
-      gsap.to(cursor, {
-        width: 42,
-        height: 42,
-        duration: 0.22,
-        ease: "power2.out"
-      });
-
-      gsap.to(dot, {
-        scale: 0.7,
-        duration: 0.22,
-        ease: "power2.out"
-      });
+    const enter = () => {
+      ringSize.set(42);
     };
 
-    const handleLeave = () => {
-      gsap.to(cursor, {
-        width: 28,
-        height: 28,
-        duration: 0.22,
-        ease: "power2.out"
-      });
-
-      gsap.to(dot, {
-        scale: 1,
-        duration: 0.22,
-        ease: "power2.out"
-      });
+    const leave = () => {
+      ringSize.set(28);
     };
 
-    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mousemove", move);
 
-    const interactiveElements = document.querySelectorAll(
+    const elements = document.querySelectorAll(
       "a, button, .proj, .resume-btn"
     );
 
-    interactiveElements.forEach((element) => {
-      element.addEventListener("mouseenter", handleEnter);
-      element.addEventListener("mouseleave", handleLeave);
+    elements.forEach((element) => {
+      element.addEventListener("mouseenter", enter);
+      element.addEventListener("mouseleave", leave);
     });
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mousemove", move);
 
-      interactiveElements.forEach((element) => {
-        element.removeEventListener("mouseenter", handleEnter);
-        element.removeEventListener("mouseleave", handleLeave);
+      elements.forEach((element) => {
+        element.removeEventListener("mouseenter", enter);
+        element.removeEventListener("mouseleave", leave);
       });
     };
-  }, []);
+  }, [mouseX, mouseY, ringSize]);
 
   return (
     <>
-      <div ref={cursorRef} className="custom-cursor" />
-      <div ref={dotRef} className="custom-cursor-dot" />
+      <motion.div
+        className="custom-cursor"
+        style={{
+          x: ringX,
+          y: ringY,
+          width: ringWidth,
+          height: ringHeight
+        }}
+      />
+
+      <motion.div
+        className="custom-cursor-dot"
+        style={{
+          x: dotX,
+          y: dotY
+        }}
+      />
     </>
   );
 }
