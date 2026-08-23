@@ -50,10 +50,10 @@ export default function Home() {
     const timeInterval = setInterval(updateTime, 1000);
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1,
       easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
-      smoothTouch: false,
+      smoothTouch: true,
       wheelMultiplier: 0.8,
       touchMultiplier: 1,
       normalizeWheel: true,
